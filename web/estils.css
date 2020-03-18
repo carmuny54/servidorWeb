@@ -17,9 +17,10 @@ table, th, td {
 }
 
 .botoMenu {
-    color: blue;
+    color: black;
     cursor: pointer;
     margin: 0 16px;
+    font-size: 20px;
 }
 
 .botoMenu:hover {
@@ -76,4 +77,77 @@ body > #popups {
     display: none;
 }
 
+.menuweb{
+    background-image: url(./imatges/banner.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 250px;
+}
 
+.menuwebbotones{
+    display:flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
+
+.botoMenu {
+    transition: ALL 0.5s;
+    background: rgba(255,240,43,0);
+    width: auto;
+    height: auto;
+    padding: 5px 10px 5px 10px;
+    border-radius: 10px;
+}
+
+.botoMenu:hover {
+    background: rgba(255,240,43,1);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+}
+
+.menuhidden{
+    display:none;
+    height: 0px;
+    width: 100%100%;
+}
+
+.botonesmenuhidden{
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    height: auto;
+}
+
+.iconomenuboton{
+    transition:ALL 1s;
+}
+
+.fondopagina{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255,240,43);
+    display:flex;
+    flex-direction: column;
+
+}
+
+.content{
+    background-color: gray;
+    border-radius: 10px;
+    width: auto;
+    height: auto;
+    margin: 25px;
+}
+
+.pie{
+
+    width: 100%;
+    height: auto;
+    background-color: rgb(34, 34, 34);
+
+}
+
+.titulos{
+
+    text-align: center;
+
+}

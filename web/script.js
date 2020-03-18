@@ -38,3 +38,24 @@ function iniciaSeccio(seccio) {
     }
 }
 
+function menumobilhidden() {
+
+    let menu = document.getElementById('menuhidden');
+        icono = document.getElementById('iconomenuboton');
+
+
+        if (menu.style.display == "none"){
+
+            menu.style.display = "block";
+            menu.style.height = "auto";
+            icono.style.transform = "rotate(180deg)";
+    
+     }
+     else{
+            menu.style.height = "0px";
+            menu.style.display = "none";
+            icono.style.transform = "rotate(0deg)";    
+    }
+
+
+}

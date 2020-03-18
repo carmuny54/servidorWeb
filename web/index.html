@@ -25,32 +25,60 @@
         <meta name="theme-color" content="#ffffff">
         <link href="/web/appicons/manifest.json" rel="manifest">
     </head>
+
+
+
     <body onload='inicia()'>
+
+
+
+        
         <div id='frontendMenuWeb' class='flexRow desktop'>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
-            <div id='botoLoginWeb' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
-            <div id='botoGestioUsuarisWeb' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
-            <div id='botoGestioProductesWeb' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
-            <div id='botoLogoutWeb' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
+            <div class="menuweb">
+                <div class="menuwebbotones">
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
+                    <div id='botoLoginWeb' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
+                    <div id='botoGestioUsuarisWeb' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
+                    <div id='botoGestioProductesWeb' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
+                    <div id='botoLogoutWeb' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
+                </div>
+            </div>
         </div>
-        <div id='frontendMenuMobil' class='flexColumn mobile'>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
-            <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
-            <div id='botoLoginMobil' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
-            <div id='botoGestioUsuarisMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
-            <div id='botoGestioProductesMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
-            <div id='botoLogoutMobil' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
+
+
+        <div id='frontendMenuMobil' class='flexColumn mobile botonesmenuhidden'>
+                    <div id="menuhidden" class="menuhidden">
+                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
+                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
+                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
+                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
+                               <div id='botoLoginMobil' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
+                               <div id='botoGestioUsuarisMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
+                               <div id='botoGestioProductesMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
+                               <div id='botoLogoutMobil' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
+                    </div>
+                <button onclick="menumobilhidden()"><i id="iconomenuboton" class="material-icons iconomenuboton">keyboard_arrow_down</i></button>
         </div>
+
+
+
         <div id='frontendHome'>
             Pàgina principal
         </div>
-        <div id='frontendPresentacio'>
-            Pàgina amb una presentacio de l'empresa
+        <div id='frontendPresentacio' class="fondopagina">
+            <div class="content">
+
+                <h1 class="titulos">Conocenos</h1>
+
+            </div>
+
+            <div class="pie">
+
+            </div>
+
         </div>
         <div id='frontendProductes'>
             <div id='productesLoading'>Carregant productes ...</div>
