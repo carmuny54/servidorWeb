@@ -44,17 +44,17 @@ function menumobilhidden() {
         icono = document.getElementById('iconomenuboton');
 
 
-        if (menu.style.display == "none"){
+        if (menu.style.display == "block"){
 
-            menu.style.display = "block";
-            menu.style.height = "auto";
-            icono.style.transform = "rotate(180deg)";
+            menu.style.display = "none";
+            menu.style.height = "0px";
+            icono.style.transform = "rotate(0deg)";
     
      }
      else{
-            menu.style.height = "0px";
-            menu.style.display = "none";
-            icono.style.transform = "rotate(0deg)";    
+            menu.style.height = "auto";
+            menu.style.display = "block";
+            icono.style.transform = "rotate(180deg)";    
     }
 
 
