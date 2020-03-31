@@ -36,6 +36,8 @@ class Obj {
                 await db.promiseQuery(sql)
                 sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Aspirador", "Aspirador molt xulo", 300, "/web/imatges/producte-3.jpg")'
                 await db.promiseQuery(sql)
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Paris", "Billete Primera clase", 700, "/web/imatges/billetes.jpg")'
+                await db.promiseQuery(sql)
             } catch (e) {
                 console.error(e)
                 return result.json({ resultat: "ko", missatge: "Error, funció llistatProductes: no s'ha pogut crear la taula productes"})  
