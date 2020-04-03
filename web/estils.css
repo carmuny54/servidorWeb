@@ -140,7 +140,13 @@ body > #popups {
     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
     display: block;
     margin: auto;
+    overflow-y: scroll;
 }
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
 
 .titulos{
     text-align: center;
@@ -153,8 +159,6 @@ body > #popups {
     color:black;
     text-decoration: underline;
     font-size: 80px;
-    padding-top: auto;
-    padding-bottom: auto;
 }
 
 div.fotos{
@@ -181,12 +185,15 @@ text-align: center;
 .fondo_titulo{
     background-color: rgb(255,240,43);
     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-    border-radius: 5px;
+    border-radius: 50px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .productos{
     border: 2px solid black;
-    max-width: 100%;
+    max-width: 50%;
     margin: 25px;
     padding: 10px;
     border-radius: 25px;
@@ -210,4 +217,8 @@ text-align: center;
     width: 25%;
     height: 25%;
     margin:auto;
+}
+
+.flexwrap{
+flex-wrap: wrap;
 }
