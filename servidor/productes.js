@@ -30,17 +30,17 @@ class Obj {
             try {
                 sql = 'CREATE TABLE productes (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, nom VARCHAR(50) NOT NULL, descripcio TEXT, preu INT(6), imatge VARCHAR(255))'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Tele", "Tele molt xula", 800, "/web/imatges/producte-1.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Paris", "Billete Primera Clase", 700, "/web/imatges/paris.jpg")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Batidora", "Batidora molt xula", 20, "/web/imatges/producte-2.png")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Roma", "Billete Clase Turista", 120, "/web/imatges/roma.jpg")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Aspirador", "Aspirador molt xulo", 300, "/web/imatges/producte-3.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Barcelona", "Billete Clase Turista", 200, "/web/imatges/barcelona.jpg")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Paris", "Billete Primera Clase", 700, "/web/imatges/billetes.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Amsterdam", "Billete Clase Turista", 180, "/web/imatges/amsterdam.jpg")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Roma", "Billete Clase Turista", 120, "/web/imatges/billetes.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Moscú", "Billete Clase Turista", 220, "/web/imatges/moscu.jpg")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Barcelona", "Billete Clase Turista", 200, "/web/imatges/billetes.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Londres", "Billete Clase Turista", 150, "/web/imatges/londres.jpg")'
                 await db.promiseQuery(sql)
             } catch (e) {
                 console.error(e)

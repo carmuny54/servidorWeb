@@ -166,11 +166,26 @@ div.fotos{
     flex-direction: row;
     justify-content: center;
     margin-bottom: 25px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 img.imagenes{
     width: 45%;
     height: 45%;
+}
+
+img.imagenesavion{
+    width: 45%;
+    height: 45%;
+    transform: rotate(10deg);
+    transition: all 2s;
+    margin: 30px;
+}
+
+img.imagenesavion:hover{
+    transform: rotate(0deg);
 }
 
 img.imagenes_viajes{
@@ -185,8 +200,8 @@ text-align: center;
 .fondo_titulo{
     background-color: rgb(255,240,43);
     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-    border-radius: 50px;
-    width: 80%;
+    border-radius: 25px;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -198,7 +213,10 @@ text-align: center;
     padding: 10px;
     border-radius: 25px;
     text-align: center;
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+}
+
+.productos:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .underline{
@@ -221,4 +239,41 @@ text-align: center;
 
 .flexwrap{
 flex-wrap: wrap;
+}
+
+.tabla_usuarios{
+    width: 95%;
+    height: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.centro{
+    text-align-last: center;
+    margin-top: 100px;
+}
+
+.boton_usuarios{
+    background-color: rgb(255,240,43);
+    width: 200px;
+    height: 70px;
+    border-radius: 25px;
+    font-size: 25px;
+}
+
+.boton_usuarios_div{
+    text-align: center;
+}
+.boton_usuarios:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+table, th, td {
+    border-collapse: collapse;
+    padding: 10px;
+    font-size: xx-large;
+    border-radius: 25px;
 }

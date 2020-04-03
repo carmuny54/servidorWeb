@@ -28,8 +28,8 @@ class ObjSeccioBackofficeUsuaris {
         // Transformem l'objecte rebut en codi HTML
         if (objRebut.resultat === 'ok') {
             navegacio.dadesSeccio = objRebut.missatge
-
-            codiHTML = codiHTML + '<table>'
+            codiHTML = codiHTML + '<div class="centro">'
+            codiHTML = codiHTML + '<table class="tabla_usuarios">'
             codiHTML = codiHTML + '<tr>'
             codiHTML = codiHTML + '<td></td>'
             codiHTML = codiHTML + '<td>Id</td>'
@@ -56,7 +56,10 @@ class ObjSeccioBackofficeUsuaris {
             }
             codiHTML = codiHTML + '</table>'
             codiHTML = codiHTML + '</br></br>'
-            codiHTML = codiHTML + '<input type="button" value="Afegir usuari" onclick="seccioBackofficeUsuaris.mostraAfegeixUsuari()" />'
+            codiHTML = codiHTML + '<div class="boton_usuarios_div">'
+            codiHTML = codiHTML + '<input class="boton_usuarios" type="button" value="Afegir usuari" onclick="seccioBackofficeUsuaris.mostraAfegeixUsuari()" />'
+            codiHTML = codiHTML + '</div>'
+            codiHTML = codiHTML + '</div>'
         }
 
         // Amaguem la càrrega i mostrem el llistat de productes en una taula
