@@ -30,27 +30,27 @@ class ObjSeccioBackofficeUsuaris {
             navegacio.dadesSeccio = objRebut.missatge
             codiHTML = codiHTML + '<div class="centro">'
             codiHTML = codiHTML + '<table class="tabla_usuarios">'
-            codiHTML = codiHTML + '<tr>'
-            codiHTML = codiHTML + '<td></td>'
-            codiHTML = codiHTML + '<td>Id</td>'
-            codiHTML = codiHTML + '<td>Correu</td>'
-            codiHTML = codiHTML + '<td>Nom</td>'
-            codiHTML = codiHTML + '<td>Tipus</td>'
-            codiHTML = codiHTML + '<td></td>'
+            codiHTML = codiHTML + '<tr class="tr_usuarios_info">'
+            codiHTML = codiHTML + '<td class="td_usuarios"></td>'
+            codiHTML = codiHTML + '<td class="td_usuarios">Id</td>'
+            codiHTML = codiHTML + '<td class="td_usuarios">Correu</td>'
+            codiHTML = codiHTML + '<td class="td_usuarios">Nom</td>'
+            codiHTML = codiHTML + '<td class="td_usuarios">Tipus</td>'
+            codiHTML = codiHTML + '<td class="td_usuarios"></td>'
             codiHTML = codiHTML + '</tr>'
             for (cntUsuari = 0; cntUsuari < navegacio.dadesSeccio.length; cntUsuari = cntUsuari + 1) {
                 valor = navegacio.dadesSeccio[cntUsuari]
-                codiHTML = codiHTML + '<tr>'
-                codiHTML = codiHTML + '<td><img src="' + valor.imatge + '" width="50" /></td>'
-                codiHTML = codiHTML + '<td>' + valor.id + '</td>'
-                codiHTML = codiHTML + '<td>' + valor.correu + '</td>'
-                codiHTML = codiHTML + '<td>' + valor.nom + '</td>'
-                codiHTML = codiHTML + '<td>' + valor.tipus + '</td>'
+                codiHTML = codiHTML + '<tr class="tr_usuarios_usuarios">'
+                codiHTML = codiHTML + '<td class="td_usuarios_img"><img src="' + valor.imatge + '" width="50" /></td>'
+                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.id + '</td>'
+                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.correu + '</td>'
+                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.nom + '</td>'
+                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.tipus + '</td>'
                 // No deixem editar l'usuari 'admin@admin.com'
                 if (valor.correu !== 'admin@admin.com') {
-                    codiHTML = codiHTML + '<td><i class="material-icons botoIcona" onclick="seccioBackofficeUsuaris.mostraEdicioUsuari(' + valor.id + ')">edit</i></td>'
+                    codiHTML = codiHTML + '<td class="td_usuarios"><i class="material-icons botoIcona" onclick="seccioBackofficeUsuaris.mostraEdicioUsuari(' + valor.id + ')">edit</i></td>'
                 } else {
-                    codiHTML = codiHTML + '<td></td>'
+                    codiHTML = codiHTML + '<td class="td_usuarios"></td>'
                 }
                 codiHTML = codiHTML + '</tr>'
             }

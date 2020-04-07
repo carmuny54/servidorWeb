@@ -213,6 +213,7 @@ text-align: center;
     padding: 10px;
     border-radius: 25px;
     text-align: center;
+    transition: all 0.5s;
 }
 
 .productos:hover{
@@ -247,7 +248,34 @@ flex-wrap: wrap;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
-    border-radius: 25px;
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.tr_usuarios_info{
+    padding: 10px;
+    font-size: xx-large;
+    background-color:#FF8F00;
+}
+
+.tr_usuarios_usuarios{
+    margin-top: 20%;
+    margin-bottom: 20%;
+
+}
+
+tr:nth-child(even){
+    background-color: #fff9a2;
+}
+
+.td_usuarios{
+    border:none;
+}
+
+.td_usuarios_img{
+    border: none;
+    width: 1;
 }
 
 .centro{
@@ -270,10 +298,3 @@ flex-wrap: wrap;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
-
-table, th, td {
-    border-collapse: collapse;
-    padding: 10px;
-    font-size: xx-large;
-    border-radius: 25px;
-}
