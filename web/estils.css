@@ -1,8 +1,236 @@
 /* Definicions de classes utils genèriques */
 .desktop { display: flex !important; }
 .mobile  { display: flex !important; }
-@media only screen and (max-device-width: 599px) { .desktop { display: none !important; } }
-@media only screen and (min-device-width: 600px) { .mobile  { display: none !important; } }
+@media only screen and (max-device-width: 599px) { 
+    .desktop { 
+        display: none !important; 
+    } 
+
+    .content{
+        background-color: gray;
+        width: 100%;
+        height: 100%;
+        display: block;
+        overflow-y: scroll;
+    }
+    
+    .content::-webkit-scrollbar {
+        display: none;
+    }
+
+    img.imagenesavion{
+        max-width: 80%;
+        transform: rotate(10deg);
+        transition: all 2s;
+        margin: 30px;
+    }
+    
+    img.imagenesavion:hover{
+        transform: rotate(0deg);
+    }
+
+    .titulo_contacto{
+        text-align: center;
+        color:black;
+        text-decoration: underline;
+        font-size: 40px;
+    }
+    .fondo_titulo{
+        background-color: rgb(255,240,43);
+        box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+        border-radius: 25px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    h2.contacto{
+        font-size: 20px;
+    }
+
+    .mapa{
+        width: 100%;
+        height: 100%;
+        margin:auto;
+    }
+
+    img.imagenes{
+        width: 100%;
+        height: 100%;
+    }
+    
+    img.imagenes_viajes{
+        text-align: center;
+        box-shadow: 0px 0px 19px 11px rgba(0,0,0,0.75);
+    }
+
+    .tabla_usuarios{
+        width: 95%;
+        height: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        border-collapse: collapse;
+        border-radius: 1em;
+        overflow: hidden;
+    }
+    
+    .tr_usuarios_info{
+        padding: 10px;
+        font-size: xx-large;
+        background-color:#FF8F00;
+    }
+    
+    .tr_usuarios_usuarios{
+        margin-top: 20%;
+        margin-bottom: 20%;
+    
+    }
+    
+    tr:nth-child(even){
+        background-color: #fff9a2;
+    }
+    
+    .td_usuarios{
+        border:none;
+    }
+    
+    .td_usuarios_img{
+        border: none;
+        width: 1;
+    }
+    .boton_usuarios{
+        background-color: rgb(255,240,43);
+        width: 200px;
+        height: 70px;
+        border-radius: 25px;
+        font-size: 25px;
+    }
+    
+    .boton_usuarios_div{
+        text-align: center;
+    }
+    
+    .boton_usuarios:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    
+
+}
+@media only screen and (min-device-width: 600px) { 
+    .mobile { 
+        display: none !important; 
+    }
+
+    .content{
+        background-color: gray;
+        border-radius: 10px;
+        width: 90%;
+        height: 90%;
+        box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+        display: block;
+        margin: auto;
+        overflow-y: scroll;
+    }
+    
+    .content::-webkit-scrollbar {
+        display: none;
+    }
+
+    img.imagenesavion{
+        transform: rotate(10deg);
+        transition: all 2s;
+        margin: 30px;
+    }
+    
+    img.imagenesavion:hover{
+        transform: rotate(0deg);
+    }
+
+    .titulo_contacto{
+        text-align: center;
+        color:black;
+        text-decoration: underline;
+        font-size: 80px;
+    }
+    .fondo_titulo{
+        background-color: rgb(255,240,43);
+        box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
+        border-radius: 25px;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mapa{
+        width: 25%;
+        height: 25%;
+        margin:auto;
+    }
+
+    img.imagenes{
+        width: 45%;
+        height: 45%;
+    }
+    
+    img.imagenes_viajes{
+        text-align: center;
+        box-shadow: 0px 0px 19px 11px rgba(0,0,0,0.75);
+    }
+
+    .tabla_usuarios{
+        width: 95%;
+        height: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: white;
+        border-collapse: collapse;
+        border-radius: 1em;
+        overflow: hidden;
+    }
+    
+    .tr_usuarios_info{
+        padding: 10px;
+        font-size: xx-large;
+        background-color:#FF8F00;
+    }
+    
+    .tr_usuarios_usuarios{
+        margin-top: 20%;
+        margin-bottom: 20%;
+    
+    }
+    
+    tr:nth-child(even){
+        background-color: #fff9a2;
+    }
+    
+    .td_usuarios{
+        border:none;
+    }
+    
+    .td_usuarios_img{
+        border: none;
+        width: 1;
+    }
+    .boton_usuarios{
+        background-color: rgb(255,240,43);
+        width: 200px;
+        height: 70px;
+        border-radius: 25px;
+        font-size: 25px;
+    }
+    
+    .boton_usuarios_div{
+        text-align: center;
+    }
+    
+    .boton_usuarios:hover{
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+    
+
+}
 .flex       { display: flex; }
 .flexRow    { flex-direction: row; }
 .flexColumn { flex-direction: column; }
@@ -132,20 +360,7 @@ body > #popups {
     background-color: rgb(255,240,43);
 }
 
-.content{
-    background-color: gray;
-    border-radius: 10px;
-    width: 90%;
-    height: 90%;
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-    display: block;
-    margin: auto;
-    overflow-y: scroll;
-}
 
-.content::-webkit-scrollbar {
-    display: none;
-}
 
 
 .titulos{
@@ -154,12 +369,7 @@ body > #popups {
     text-decoration: underline;
 }
 
-.titulo_contacto{
-    text-align: center;
-    color:black;
-    text-decoration: underline;
-    font-size: 80px;
-}
+
 
 div.fotos{
     display: flex;
@@ -171,39 +381,8 @@ div.fotos{
     margin-right: auto;
 }
 
-img.imagenes{
-    width: 45%;
-    height: 45%;
-}
-
-img.imagenesavion{
-    width: 45%;
-    height: 45%;
-    transform: rotate(10deg);
-    transition: all 2s;
-    margin: 30px;
-}
-
-img.imagenesavion:hover{
-    transform: rotate(0deg);
-}
-
-img.imagenes_viajes{
-    text-align: center;
-    box-shadow: 0px 0px 19px 11px rgba(0,0,0,0.75);
-}
-
 .text_center{
-text-align: center;
-}
-
-.fondo_titulo{
-    background-color: rgb(255,240,43);
-    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.75);
-    border-radius: 25px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
 
 .productos{
@@ -232,69 +411,17 @@ text-align: center;
     margin-top: 225px;
 }
 
-.mapa{
-    width: 25%;
-    height: 25%;
-    margin:auto;
-}
+
 
 .flexwrap{
 flex-wrap: wrap;
 }
 
-.tabla_usuarios{
-    width: 95%;
-    height: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: white;
-    border-collapse: collapse;
-    border-radius: 1em;
-    overflow: hidden;
-}
 
-.tr_usuarios_info{
-    padding: 10px;
-    font-size: xx-large;
-    background-color:#FF8F00;
-}
-
-.tr_usuarios_usuarios{
-    margin-top: 20%;
-    margin-bottom: 20%;
-
-}
-
-tr:nth-child(even){
-    background-color: #fff9a2;
-}
-
-.td_usuarios{
-    border:none;
-}
-
-.td_usuarios_img{
-    border: none;
-    width: 1;
-}
 
 .centro{
     text-align-last: center;
     margin-top: 100px;
 }
 
-.boton_usuarios{
-    background-color: rgb(255,240,43);
-    width: 200px;
-    height: 70px;
-    border-radius: 25px;
-    font-size: 25px;
-}
-
-.boton_usuarios_div{
-    text-align: center;
-}
-.boton_usuarios:hover{
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-}
 
