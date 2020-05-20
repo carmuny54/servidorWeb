@@ -300,8 +300,8 @@ body > #popups {
 }
 
 #popups > div {
-    border: solid 1px black;
-    background-color: lightcyan;
+    background-color: gray;
+    border-radius: 10px;
     display: none;
 }
 
@@ -397,6 +397,7 @@ div.fotos{
 
 .productos:hover{
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    cursor: pointer
 }
 
 .underline{
@@ -425,3 +426,57 @@ flex-wrap: wrap;
 }
 
 
+input.boton_login{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(255,240,43);
+    border-radius: 15px;
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+input.boton_login:hover{
+    cursor: pointer;
+}
+
+div.boton_login{
+
+    text-align: center;
+
+}
+
+.par_login{
+
+    margin: 20px;
+
+}
+
+div.titulo_login{
+
+    color:white;
+    text-decoration: underline rgb(255,240,43);
+    font-size: 20px;
+
+}
+
+input.titulo_login{
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+}
+
+.imagenes_producto{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+.des_precio{
+    font-size: 20px;
+    background-color: rgb(255,240,43);
+    border-radius: 15px;
+    border: 2px solid black;
+    width: fit-content;
+    margin-top: 15px;
+}

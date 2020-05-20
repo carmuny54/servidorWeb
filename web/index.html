@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta charset='utf-8'/>
-        <title>Pagina Carlos</title>
+        <title>Viejes Carlos</title>
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap'>
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
@@ -13,6 +13,7 @@
         <script src='/web/script-popups.js'></script>
         <script src='/web/script-seccio-backofficeusuaris.js'></script>
         <script src='/web/script-seccio-frontendproductes.js'></script>
+        <script src='/web/script-seccio-frontendproducte.js'></script>
         <script src='/web/script-utils.js'></script>
         <script src='/web/script.js'></script>
 
@@ -49,16 +50,16 @@
 
 
         <div id='frontendMenuMobil' class='flexColumn mobile botonesmenuhidden'>
-                    <div id="menuhidden" class="menuhidden">
-                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
-                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
-                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
-                               <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
-                               <div id='botoLoginMobil' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
-                               <div id='botoGestioUsuarisMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
-                               <div id='botoGestioProductesMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
-                               <div id='botoLogoutMobil' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
-                    </div>
+                <div id="menuhidden" class="menuhidden">
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendHome")'>Inici</div>
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendPresentacio")'>Presentació</div>
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendProductes")'>Productes</div>
+                    <div class='botoMenu' onclick='navegacio.canviaSeccio("frontendContacte")'>Contacte</div>
+                    <div id='botoLoginMobil' class='botoMenu' onclick='popups.mostraPopup("popupLogin")'>Login backoffice</div>
+                    <div id='botoGestioUsuarisMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeUsuaris")'>Gestió usuaris</div>
+                    <div id='botoGestioProductesMobil' class='botoMenu none' onclick='navegacio.canviaSeccio("backofficeProductes")'>Gestió productes</div>
+                    <div id='botoLogoutMobil' class='botoMenu none' onclick='login.tancaLaSessio()'>Sortir</div>
+                </div>
                 <button class="botonmenumobil" onclick="menumobilhidden()"><i id="iconomenuboton" class="material-icons iconomenuboton">keyboard_arrow_down</i></button>
         </div>
 
@@ -76,7 +77,6 @@
                         <h2>Quieres Viajar, hazlo barato!!!</h2><br>
                         <p>Si quieres viajar más, por menos estas en el sitio idóneo, ya que ofrecemos viajes de ocasión.</p>
                         <img class="imagenesavion" src="https://airgways.files.wordpress.com/2017/10/avionboeing737flybondi.png?w=1000&h=236">  
-
                     </div>  
                     <div class="fotos">
                     <img class="imagenes imagenes_viajes" src="https://www.jrailpass.com/blog/wp-content/uploads/2018/09/best-manga-anime-locations-japan-1280x720.jpg">
@@ -92,6 +92,12 @@
             </div>
         </div>
 
+        <div id='frontendProducte' class="fondopagina" style="display: none;">
+            <div class="content">
+                <div id='producteLoading' class="text_center"><img class="logo_carga" src="https://i.imgur.com/GRSrswl.gif"></div>
+                <div id='producteContinguts' class='flexRow flexwrap'></div>
+            </div>
+        </div>
 
 
         <div id='frontendContacte' class="fondopagina">
@@ -115,45 +121,60 @@
                 <div id='backofficeUsuarisLoading' class="text_center"><img class="logo_carga" src="https://i.imgur.com/GRSrswl.gif"></div>
                 <div id='backofficeUsuarisContinguts' class='flexColumn'></div>
             </div>
-        </div>
+            </div>
 
 
         <div id='backofficeProductes'>
             Pàgina per fer la gestió dels productes
         </div>
+
+    
         <div id='popups' onclick='popups.amagaAmbClick(event)'>
-            <div id='popupLogin' class='flexColumn'>
-                <div>Email:</div>
-                <input id='loginCorreu' type='text' class='halfWidth' />
-                <div>Codi:</div>
-                <input id='loginCodi' type='password' class='halfWidth' />
-                <br/>
-                <input type='button' value='entra' class='halfWidth' onclick='login.autenticaAmbFormulari()' />
-                <div id='loginLoading' class='none'>Carregant ...</div>
-                <div id='loginError' class='none'>Error al fer login ...</div>
-            </div>
-            <div id='popupBackofficeUsuaris' class='flexColumn'>
-                <div>Id:</div>
-                <div id='backofficeUsuarisId'></div>
-                <div>Correu:</div>
-                <input id='backofficeUsuarisCorreu' type='text' value=''/>
-                <div>Nom:</div>
-                <input id='backofficeUsuarisNom' type='text' value=''/>
-                <div>Tipus:</div>
-                <select id='backofficeUsuarisTipus'>
-                    <option>admin</option>
-                    <option>normal</option>
-                </select>
-                <div>Codi:</div>
-                <input id='backofficeUsuarisCodi' type='text' value=''/>
-                <div>Imatge:</div>
-                <div class='flex flexRow'>
-                    <input id='backofficeUsuarisArxiu' class="dropFile" accept="image/*" type="file" onchange="seccioBackofficeUsuaris.mostraImatge()" />
-                    <img id='backofficeUsuarisImg' src='/web/imatges/transparent.png' width='100'/>
-                </div>
+
+            <div id='popupLogin'>
+                <div class="content_login flexColumn">
+                    <div class="par_login">
+                        <div class="titulo_login">Email:</div>
+                        <input id='loginCorreu' type='text' class='halfWidth' />
+                        <div class="titulo_login">Codi:</div>
+                        <input id='loginCodi' type='password' class='halfWidth' />
+                    </div>
+                    
+                    <br/>
                 
+                    <div class="boton_login">
+                        <input class="boton_login" type='button' value='Entra' class='halfWidth' onclick='login.autenticaAmbFormulari()' />
+                    </div>
+
+                    <div id='loginLoading' class='none'>Carregant ...</div>
+                    <div id='loginError' class='none'>Error al fer login ...</div>
+                </div>
+            </div>
+
+
+            <div id='popupBackofficeUsuaris' class='flexColumn'>
+                <div class="par_login">
+                    <div class="titulo_login">Id:</div>
+                    <div id='backofficeUsuarisId'></div>
+                    <div class="titulo_login">Correu:</div>
+                    <input class="titulo_login" id='backofficeUsuarisCorreu' type='text' value=''/>
+                    <div class="titulo_login">Nom:</div>
+                    <input class="titulo_login" id='backofficeUsuarisNom' type='text' value=''/>
+                    <div class="titulo_login">Tipus:</div>
+                    <select id='backofficeUsuarisTipus'>
+                        <option>admin</option>
+                        <option>normal</option>
+                    </select>
+                    <div class="titulo_login">Codi:</div>
+                    <input class="titulo_login" id='backofficeUsuarisCodi' type='text' value=''/>
+                    <div class="titulo_login">Imatge:</div>
+                    <div class='flex flexRow'>
+                        <input class="titulo_login" id='backofficeUsuarisArxiu' class="dropFile" accept="image/*" type="file" onchange="seccioBackofficeUsuaris.mostraImatge()" />
+                        <img id='backofficeUsuarisImg' src='/web/imatges/transparent.png' width='100'/>
+                    </div>
+                </div>
                 <br/>
-                <input type='button' value='Guarda' onclick='seccioBackofficeUsuaris.guardaDadesUsuariAlServidor()'/>
+                <input class="boton_login" type='button' value='Guarda' onclick='seccioBackofficeUsuaris.guardaDadesUsuariAlServidor()'/>
                 <br/>
                 <input id='backofficeUsuarisBotoEsborra' type='button' value='Esborra l&#39;usuari' onclick='seccioBackofficeUsuaris.esborraUsuariDelServidor()' />
                 <div id='backofficeUsuarisPopupLoading' class='none'>Carregant ...</div>
