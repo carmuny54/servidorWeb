@@ -28,23 +28,23 @@ class Obj {
         // Si la taula "productes" no existeix, en crea una i afegeix productes
         if (!taulaProductesExisteix) {
             try {
-                sql = 'CREATE TABLE productes (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, nom VARCHAR(50) NOT NULL, descripcio TEXT, preu INT(6), imatge VARCHAR(255))'
+                sql = 'CREATE TABLE productes (id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, nom VARCHAR(50) NOT NULL, descripcio TEXT, preu INT(6), imatge VARCHAR(255), desextendida TEXT)'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Paris", "Billete Primera Clase", 700, "/web/imatges/paris.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Paris", "Billete Primera Clase", 700, "/web/imatges/paris.jpg", "Paris es la ciudad del amor")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Roma", "Billete Clase Turista", 120, "/web/imatges/roma.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Roma", "Billete Clase Turista", 120, "/web/imatges/roma.jpg", "hola")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Barcelona", "Billete Clase Turista", 200, "/web/imatges/barcelona.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Barcelona", "Billete Clase Turista", 200, "/web/imatges/barcelona.jpg", "Barcelona es una ciudad española, capital de la comunidad autónoma de Cataluña, de la comarca del Barcelonés y de la provincia homónima. Con una población de 1 636 762 habitantes en 2019,6​ es la segunda ciudad más poblada de España después de Madrid, y la décima de la Unión Europea. El área metropolitana de Barcelona tiene 3 291 654 (2019),7​ y el ámbito metropolitano de Barcelona, cuenta con 4 895 876 habitantes (2019), siendo así la quinta ciudad de mayor población de la Unión Europea.8​9​")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Amsterdam", "Billete Clase Turista", 180, "/web/imatges/amsterdam.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Amsterdam", "Billete Clase Turista", 180, "/web/imatges/amsterdam.jpg", "hola")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Moscú", "Billete Clase Turista", 220, "/web/imatges/moscu.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Moscú", "Billete Clase Turista", 220, "/web/imatges/moscu.jpg", "hola")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Londres", "Billete Clase Turista", 150, "/web/imatges/londres.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Londres", "Billete Clase Turista", 150, "/web/imatges/londres.jpg", "hola")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Tokyo", "Billete Clase Turista", 185, "/web/imatges/tokyo.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Tokyo", "Billete Clase Turista", 185, "/web/imatges/tokyo.jpg", "hola")'
                 await db.promiseQuery(sql)
-                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge) VALUES ("Turquía", "Billete Clase Turista", 180, "/web/imatges/turquia.jpg")'
+                sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("Estambul", "Billete Clase Turista", 180, "/web/imatges/turquia.jpg", "hola")'
                 await db.promiseQuery(sql)
             } catch (e) {
                 console.error(e)

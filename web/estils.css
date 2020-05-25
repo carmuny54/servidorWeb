@@ -480,3 +480,45 @@ input.titulo_login{
     width: fit-content;
     margin-top: 15px;
 }
+
+.vuelos{
+    width: 740px;
+    height: 342px;
+    background-color: white;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.flexInline{
+
+    display: inline-flex;
+    padding: 20px;
+    font-size: 25px;
+}
+
+.marginR80{
+    margin-right: 80px;
+}
+
+
+
+.inputvuelo{
+
+    font-size: 23px;
+    box-shadow: inset 0px 0px 16px -5px rgba(0,0,0,0.75);
+    border-radius: 10px;
+}
+
+.botonvuelos{
+    background-color: rgb(29, 32, 228);
+    font-size: 30px;
+    color:white;
+    border-radius: 15px;
+    margin-left:20px;
+}
+
+.botonvuelos:hover{
+    background-color: rgb(27, 27, 136);
+}
