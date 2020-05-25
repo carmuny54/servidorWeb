@@ -116,6 +116,64 @@
     }
     
 
+    .vuelos{
+        width: 80%;
+        height: fit-content;
+        background-color: white;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+        flex-direction: column;
+    }
+    
+    .flexInline{
+    
+        flex-direction: column;
+        padding: 20px;
+        font-size: 18px;
+    }
+    
+    .inputvuelo{
+    
+        font-size: 18px;
+        box-shadow: inset 0px 0px 16px -5px rgba(0,0,0,0.75);
+        border-radius: 10px;
+    }
+    
+    .botonvuelos{
+        background-color: rgb(29, 32, 228);
+        font-size: 30px;
+        color:white;
+        border-radius: 15px;
+        margin-left:20px;
+        margin-bottom: 15px;
+    }
+    
+    .botonvuelos:hover{
+        background-color: rgb(27, 27, 136);
+    }
+
+    .formulario{
+        width: 300;
+        padding: 25px;
+        font-size: 20px;
+        height: 380px;
+        background-color: white;
+        border-radius: 5px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    }
+    
+    .formulariotitulo{
+        text-align: center;
+        font-size: 30px;
+        text-decoration: underline;
+    }
+
 }
 @media only screen and (min-device-width: 600px) { 
     .mobile { 
@@ -229,6 +287,68 @@
         box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
     }
     
+
+    .vuelos{
+        width: 740px;
+        height: 342px;
+        background-color: white;
+        border-radius: 5px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+    }
+    
+    .flexInline{
+    
+        display: inline-flex;
+        padding: 20px;
+        font-size: 25px;
+    }
+    
+    .marginR80{
+        margin-right: 80px;
+    }
+    
+    
+    
+    .inputvuelo{
+    
+        font-size: 23px;
+        box-shadow: inset 0px 0px 16px -5px rgba(0,0,0,0.75);
+        border-radius: 10px;
+    }
+    
+    .botonvuelos{
+        background-color: rgb(29, 32, 228);
+        font-size: 30px;
+        color:white;
+        border-radius: 15px;
+        margin-left:20px;
+    }
+    
+    .botonvuelos:hover{
+        background-color: rgb(27, 27, 136);
+    }
+
+    .formulario{
+        width: 600px;
+        padding: 25px;
+        font-size: 20px;
+        height: 315px;
+        background-color: white;
+        border-radius: 5px;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.75);
+    }
+    
+    .formulariotitulo{
+        text-align: center;
+        font-size: 30px;
+        text-decoration: underline;
+    }
 
 }
 .flex       { display: flex; }
@@ -481,44 +601,3 @@ input.titulo_login{
     margin-top: 15px;
 }
 
-.vuelos{
-    width: 740px;
-    height: 342px;
-    background-color: white;
-    border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25px;
-}
-
-.flexInline{
-
-    display: inline-flex;
-    padding: 20px;
-    font-size: 25px;
-}
-
-.marginR80{
-    margin-right: 80px;
-}
-
-
-
-.inputvuelo{
-
-    font-size: 23px;
-    box-shadow: inset 0px 0px 16px -5px rgba(0,0,0,0.75);
-    border-radius: 10px;
-}
-
-.botonvuelos{
-    background-color: rgb(29, 32, 228);
-    font-size: 30px;
-    color:white;
-    border-radius: 15px;
-    margin-left:20px;
-}
-
-.botonvuelos:hover{
-    background-color: rgb(27, 27, 136);
-}

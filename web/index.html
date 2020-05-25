@@ -97,6 +97,7 @@
                             <div class=""><input class="inputvuelo" type="text" value placeholder="¿A dónde vas?" autocomplete="off" spellcheck="false "></div>
                         </div>
 
+
                         <div class="flexInline">
                             <div class=" marginR80"><label>Que dia lo necesitas</label><input class="inputvuelo" type="date" value placeholder="¿Desde dónde sales?" autocomplete="off" spellcheck="false "></div>
                             <div class=""><label>Que dia lo devuelves </label><input class="inputvuelo" type="date" value placeholder="¿A dónde vas?" autocomplete="off" spellcheck="false "></div>
@@ -140,21 +141,21 @@
 
             
             <div class="vuelos mobile">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-tabs" id="myTab2" role="tablist">
                     <li class="nav-item">
-                      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><span class="material-icons">flight_takeoff</span>Vuelos</a>
+                      <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#home2" role="tab" aria-controls="home2" aria-selected="true"><span class="material-icons">flight_takeoff</span>Vuelos</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><span class="material-icons">hotel</span>Hoteles</a>
+                      <a class="nav-link" id="profile-tab2" data-toggle="tab" href="#profile2" role="tab" aria-controls="profile2" aria-selected="false"><span class="material-icons">hotel</span>Hoteles</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><span class="material-icons">directions_car</span>Coches de alquiler</a>
+                      <a class="nav-link" id="contact-tab2" data-toggle="tab" href="#contact2" role="tab" aria-controls="contact2" aria-selected="false"><span class="material-icons">directions_car</span>Coches de alquiler</a>
                     </li>
                   </ul>
 
 
                   <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active" id="home2" role="tabpanel" aria-labelledby="home-tab2">
 
                         <div class="flexInline">
                             <div class="marginR80"><input class="inputvuelo" type="text" value placeholder="¿Desde dónde sales?" autocomplete="off" spellcheck="false "></div>
@@ -170,7 +171,7 @@
 
                     </div>
 
-                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane fade" id="profile2" role="tabpanel" aria-labelledby="profile-tab2">
 
                         <div class="flexInline" style="width: 90%;">
                             <input style="width: 100%;" class="inputvuelo" type="text" value placeholder="Ciudad" autocomplete="off" spellcheck="false">
@@ -183,7 +184,7 @@
                         <div><button class="botonvuelos">Buscar Hoteles</button></div>
                     </div>
 
-                    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                    <div class="tab-pane fade" id="contact2" role="tabpanel" aria-labelledby="contact-tab2">
 
                         <div class="flexInline" style="width: 90%;">
                             <input style="width: 100%;" class="inputvuelo" type="text" value placeholder="Ciudad" autocomplete="off" spellcheck="false">
@@ -238,13 +239,27 @@
 
         <div id='frontendContacte' class="fondopagina">
             <div class="content">
-                <div class="text_center">
-                    <div class="fondo_titulo">
-                        <h1 class="titulo_contacto">Si quieres viajar</h1><br>
-                    </div>
-                        <h2 class="contacto">Puedes contactar por telefono con el numero: <b class="underline">177013228922</b></h2>
-                        <h2 class="contacto">Y tambien puedes contactar por Email: <b class="underline">contacto@viajes.com</b></h2>
+
+                <div class="formulario">
+
+                    <div class="formulariotitulo">Formulario de Contacto</div>
+
+                    <form>
+
+                        <label>Nombre</label><br>
+                        <input class="inputvuelo" type="text" placeholder="Tu nombre">
+
+                        <input class="inputvuelo" type="text" placeholder="Tu apellido"><br>
+
+                        <label>Correo electrónico</label><br>
+                        <input class="inputvuelo" type="email" placeholder="ejemplo@dominio.com">
+
+                    </form>
+
+                    <div><button class="botonvuelos">Enviar</button></div>
+
                 </div>
+
                 <div class="mapa">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1258.576099489878!2d2.1696041989672423!3d41.386786401360105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1585764476054!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 </div>
