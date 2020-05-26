@@ -121,17 +121,15 @@ class ObjSeccioBackofficeProductes {
         let refCarrega = document.getElementById('backofficeProductesPopupLoading'),
             refError = document.getElementById('backofficeProductesPopupError'),
             refNom = document.getElementById('BackofficeProductesNom'),
-            refTipus = document.getElementById('BackofficeProductesDescriptcio'),
-            refCodi = document.getElementById('BackofficeProductesPreu'),
+            refDescriptcio = document.getElementById('BackofficeProductesDescriptcio'),
+            refPreu = document.getElementById('BackofficeProductesPreu'),
             dadesUsuari = login.llegeixDadesUsuari(),
             objEnviament = {
                 correuAdmin: dadesUsuari ? dadesUsuari.correu : null,
                 tokenAdmin:  dadesUsuari ? dadesUsuari.token : null,
-                id: refId.innerHTML,
-                correu: refCorreu.value,
                 nom: refNom.value,
-                tipus: refTipus.value,
-                codi: refCodi.value,
+                descriptcio: refDescriptcio.value,
+                preu: refPreu.value,
                 imatge: ''
             },
             objRebut = {}
@@ -144,7 +142,7 @@ class ObjSeccioBackofficeProductes {
 
         // Intentem enviar les dades al servidor
         try {
-            objRebut = await promiseCallServer('POST', '/call/usuariGuarda', objEnviament)
+            objRebut = await promiseCallServer('POST', '/call/productesGuarda', objEnviament)
         } catch (e) {
             console.error(e)
         }

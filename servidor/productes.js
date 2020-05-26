@@ -55,7 +55,7 @@ class Obj {
         // Demana la informació de productes
         if (data.id) {
             try {
-                sql = 'SELECT * FROM productes WHERE id=' + data.id
+                sql = 'SELECT * FROM productes WHERE id=' + data.nom
                 taula = await db.promiseQuery(sql)
             } catch (e) {
                 console.error(e)
@@ -79,8 +79,100 @@ class Obj {
         }
     }
 
+async guarda (db, utils, data, result) {
+        let sql = '',
+            usuariEsAdmin = false,
+            correuAdmin = utils.preventInjection(data.correuAdmin),
+            tokenAdmin = utils.preventInjection(data.tokenAdmin),
+            codi = crypto.createHash('md5').update(utils.preventInjection(data.codi)).digest("hex"),
+            taula = [],
+            resultatInsert = null,
+            insertId = 0,
+            pathImatgeComplet = ''
 
-    
+        // Forçem una espera perquè es vegi la càrrega (TODO: esborrar-ho)
+        await utils.promiseWait(1000) 
+
+        // Mira si l'usuari té permisos d'administració
+        try {
+            usuariEsAdmin = await this.usuariEsAdmin(db, correuAdmin, tokenAdmin)
+        } catch (e) {
+            console.log(e)
+            return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al comprovar els permisos de l'usuari"})  
+
+        }
+
+        if (!usuariEsAdmin) {
+            return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: l'usuari no té permisos d'administració"})  
+        } else {
+            // Busquem algun usuari amb aquest correu
+            try {
+                sql = 'SELECT id FROM productes WHERE nom="' + data.nom + '"'
+                taula = await db.promiseQuery(sql)
+            } catch (e) {
+                return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al insertar un nou producte"})  
+            }
+            // Si hem trobat un usuari amb aquest correu, apuntem l'identificador
+
+            // Guardem les dades
+            if (data.nom === '') {
+                // Si no tenim 'id' afegim un nou usuari
+                try {
+                    sql = 'INSERT INTO productes (nom, descripcio, preu, imatge, desextendida) VALUES ("' + data.nom + '", "' + data.descripcio + '", "'+ data.preu +'" )'
+                    resultatInsert = await db.promiseQuery(sql)
+                } catch (e) {
+                    return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al insertar un nou producte"})  
+                }
+                // Si han pujat una imatge, la guardem
+                if (data.imatge !== '') {
+                    insertNom = resultatInsert.insertNom
+                    // Guardem la imatge en un arxiu
+                    try {
+                        pathImatgeComplet = await utils.guardaImatge('./web/imatges/producte-' + insertNom, data.imatge)
+                    } catch (e) {
+                        console.log(e)
+                        return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al guardar la imatge al insert"})  
+                    }
+                    // Actualitzem el camp imatge
+                    try {
+                        sql = 'UPDATE productes SET imatge="' + pathImatgeComplet + '" WHERE id=' + insertNom
+                        await db.promiseQuery(sql)
+                    } catch (e) {
+                        console.log(e)
+                        return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al actualitzar el nom de la imatge al insert"})  
+                    }
+                }
+            } else {
+                // Si tenim id modifiquem les dades d'aquesta fila
+                try {
+                    sql = 'UPDATE productes SET nom="' + data.nom + '", descripcio="' + data.descripcio + '" preu="' + data.preu + '" WHERE id=' + data.nom
+                    await db.promiseQuery(sql)
+                } catch (e) {
+                    return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al actualitzar el producte"})  
+                    console.log('update', taula)
+                }
+                // Si han pujat una imatge, la guardem
+                if (data.imatge !== '') {
+                    // Guardem la imatge en un arxiu
+                    try {
+                        pathImatgeComplet = await utils.guardaImatge('./web/imatges/producte-' + data.nom, data.imatge)
+                    } catch (e) {
+                        console.log(e)
+                        return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al guardar la imatge al update"})  
+                    }
+                    // Actualitzem el camp imatge
+                    try {
+                        sql = 'UPDATE productes SET imatge="' + pathImatgeComplet + '" WHERE id=' + data.nom
+                        await db.promiseQuery(sql)
+                    } catch (e) {
+                        return result.json({ resultat: "ko", missatge: "Error, funcio productes.guarda: hi ha hagut un error al actualitzar el nom de la imatge al update"})  
+                    }
+                }
+            }
+            return result.json({ resultat: "ok", missatge: {} })  
+        }
+    }
+
 }
 
 // Export
