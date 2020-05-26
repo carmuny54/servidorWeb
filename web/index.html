@@ -12,6 +12,7 @@
         <script src='/web/script-navegacio.js'></script>
         <script src='/web/script-popups.js'></script>
         <script src='/web/script-seccio-backofficeusuaris.js'></script>
+        <script src='/web/script-seccio-backofficeproductes.js'></script>
         <script src='/web/script-seccio-frontendproductes.js'></script>
         <script src='/web/script-seccio-frontendproducte.js'></script>
         <script src='/web/script-utils.js'></script>
@@ -276,13 +277,14 @@
             </div>
             </div>
 
-            <div id='backofficeProductes'>
-
-                <div id='backofficeProductesLoading'> </div>
-                <div id='backofficeProductesContinguts'></div>
+            <div id='backofficeProductes' class="fondopagina">
+                <div class="trans"></div>
+                <div class="content">
+                <div id='backofficeProductesLoading' style="display: none;" class="text_center"><img class="logo_carga" src="https://i.imgur.com/GRSrswl.gif"></div>
+                <div id='backofficeProductesContinguts' class='flexColumn'></div>
 
             </div>
-
+            </div>
 
     
         <div id='popups' onclick='popups.amagaAmbClick(event)'>
@@ -336,6 +338,32 @@
                 <div id='backofficeUsuarisPopupLoading' class='none'>Carregant ...</div>
                 <div id='backofficeUsuarisPopupError' class='none'>Error al guardar les dades ...</div>
             </div>
+
+            <div id='popupBackofficeProductes' class='flexColumn'>
+                <div class="par_login">
+
+                    <div class="titulo_login">Nom:</div>
+                    <input class="titulo_login" id='BackofficeProductesNom' type='text' value=''/>
+
+                    <div class="titulo_login">Descripción:</div>
+                    <input class="titulo_login" id='BackofficeProductesDescriptcio' type="text" value=""/>
+
+                    <div class="titulo_login">Precio:</div>
+                    <input class="titulo_login" id='BackofficeProductesPreu' type='text' value=''/>
+                    <div class="titulo_login">Imatge:</div>
+                    <div class='flex flexRow'>
+                        <input class="titulo_login" id='backofficeProductesArxiu' class="dropFile" accept="image/*" type="file" onchange="secciobackofficeProductes.mostraImatge()" />
+                        <img id='backofficeProductesImg' src='/web/imatges/transparent.png' width='100'/>
+                    </div>
+                </div>
+                <br/>
+                <input class="boton_login" type='button' value='Guarda' onclick='seccioBackofficeUsuaris.guardaDadesUsuariAlServidor()'/>
+                <br/>
+                <input id='backofficeUsuarisBotoEsborra' type='button' value='Esborra l&#39;usuari' onclick='seccioBackofficeUsuaris.esborraUsuariDelServidor()' />
+                <div id='backofficeProductesPopupLoading' class='none'>Carregant ...</div>
+                <div id='backofficeProductesPopupError' class='none'>Error al guardar les dades ...</div>
+            </div>
+
         </div>
     </body>
 </html>

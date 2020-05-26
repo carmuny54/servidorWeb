@@ -1,142 +1,128 @@
-class ObjSeccioBackofficeUsuaris {
+class ObjSeccioBackofficeProductes {
 
     constructor () {
         this.codiImatge = ''
     }
 
+
     async iniciaSeccio () {
-        let refLoading = document.getElementById('backofficeProductesLoading'),
-            refContinguts = document.getElementById('backofficeProductesContinguts'),
-            objRebut = null,
-            valor = null,
-            codiHTML = '',
-            cntUsuari = 0,
-            usuari = login.llegeixDadesUsuari(),
-            objEnviament = {
-                correu: usuari ? usuari.correu : null,
-                codi:    '',
-                token:  usuari ? usuari.token : null
-            }
+
+    let refLoading = document.getElementById('backofficeProductesLoading'),
+        refContinguts = document.getElementById('backofficeProductesContinguts'),
+        objRebut = null,
+        valor = null,
+        codiHTML = '',
+        cntProductos = 0,
+        usuari = login.llegeixDadesUsuari(),
+        objEnviament = {
+            correu: usuari ? usuari.correu : null,
+            codi:    '',
+            token:  usuari ? usuari.token : null,
+        }
+
+
 
         // Amaguem els continguts actuals i mostrem la càrrega
         refContinguts.style.display = 'none'
         refLoading.style.display = 'flex'
 
-        // Demanem el llistat d'usuaris al servidor
-        objRebut = await promiseCallServer('POST', '/call/llistatUsuaris', objEnviament)
 
-        // Transformem l'objecte rebut en codi HTML
-        if (objRebut.resultat === 'ok') {
-            navegacio.dadesSeccio = objRebut.missatge
-            codiHTML = codiHTML + '<div class="centro">'
-            codiHTML = codiHTML + '<table class="tabla_usuarios">'
-            codiHTML = codiHTML + '<tr class="tr_usuarios_info">'
-            codiHTML = codiHTML + '<td class="td_usuarios"></td>'
-            codiHTML = codiHTML + '<td class="td_usuarios">Id</td>'
-            codiHTML = codiHTML + '<td class="td_usuarios">Correu</td>'
-            codiHTML = codiHTML + '<td class="td_usuarios">Nom</td>'
-            codiHTML = codiHTML + '<td class="td_usuarios">Tipus</td>'
-            codiHTML = codiHTML + '<td class="td_usuarios"></td>'
-            codiHTML = codiHTML + '</tr>'
-            for (cntUsuari = 0; cntUsuari < navegacio.dadesSeccio.length; cntUsuari = cntUsuari + 1) {
-                valor = navegacio.dadesSeccio[cntUsuari]
-                codiHTML = codiHTML + '<tr class="tr_usuarios_usuarios">'
-                codiHTML = codiHTML + '<td class="td_usuarios_img"><img src="' + valor.imatge + '" width="50" /></td>'
-                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.id + '</td>'
-                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.correu + '</td>'
-                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.nom + '</td>'
-                codiHTML = codiHTML + '<td class="td_usuarios">' + valor.tipus + '</td>'
-                // No deixem editar l'usuari 'admin@admin.com'
-                if (valor.correu !== 'admin@admin.com') {
-                    codiHTML = codiHTML + '<td class="td_usuarios"><i class="material-icons botoIcona" onclick="seccioBackofficeUsuaris.mostraEdicioUsuari(' + valor.id + ')">edit</i></td>'
-                } else {
+        // Demanem el llistat de productes al servidor
+        objRebut = await promiseCallServer('POST', '/call/llistatProductes', {})
+
+
+                // Transformem l'objecte rebut en codi HTML
+                if (objRebut.resultat === 'ok') {
+                    navegacio.dadesSeccio = objRebut.missatge
+                    codiHTML = codiHTML + '<div class="centro">'
+                    codiHTML = codiHTML + '<table class="tabla_usuarios">'
+                    codiHTML = codiHTML + '<tr class="tr_usuarios_info">'
+                    codiHTML = codiHTML + '<td class="td_usuarios">nom</td>'
+                    codiHTML = codiHTML + '<td class="td_usuarios">descripcio</td>'
+                    codiHTML = codiHTML + '<td class="td_usuarios">preu</td>'
                     codiHTML = codiHTML + '<td class="td_usuarios"></td>'
-                }
-                codiHTML = codiHTML + '</tr>'
-            }
-            codiHTML = codiHTML + '</table>'
-            codiHTML = codiHTML + '</br></br>'
-            codiHTML = codiHTML + '<div class="boton_usuarios_div">'
-            codiHTML = codiHTML + '<input class="boton_usuarios" type="button" value="Afegir usuari" onclick="seccioBackofficeUsuaris.mostraAfegeixUsuari()" />'
-            codiHTML = codiHTML + '</div>'
-            codiHTML = codiHTML + '</div>'
-        }
+                    codiHTML = codiHTML + '</tr>'
+                    for (cntProductos = 0; cntProductos < navegacio.dadesSeccio.length; cntProductos = cntProductos + 1) {
+                        valor = navegacio.dadesSeccio[cntProductos]
+                        codiHTML = codiHTML + '<tr class="tr_usuarios_usuarios">'
+                        codiHTML = codiHTML + '<td class="td_usuarios">' + valor.nom + '</td>'
+                        codiHTML = codiHTML + '<td class="td_usuarios">' + valor.descripcio + '</td>'
+                        codiHTML = codiHTML + '<td class="td_usuarios">' + valor.preu + '</td>'
+                        codiHTML = codiHTML + '<td class="td_usuarios"><i class="material-icons botoIcona" onclick="seccioBackofficeProductes.mostraEdicioProductes(' + valor.id + ')">edit</i></td>'
+                        codiHTML = codiHTML + '</tr>'
+                    }
+                    codiHTML = codiHTML + '</table>'
+                    codiHTML = codiHTML + '</br></br>'
+                    codiHTML = codiHTML + '<div class="boton_usuarios_div">'
+                    codiHTML = codiHTML + '<input class="boton_usuarios" type="button" value="Afegir usuari" onclick="seccioBackofficeUsuaris.mostraAfegeixUsuari()" />'
+                    codiHTML = codiHTML + '</div>'
+                    codiHTML = codiHTML + '</div>'
+            
+                    }
 
-        // Amaguem la càrrega i mostrem el llistat de productes en una taula
-        refContinguts.innerHTML = codiHTML
-        refContinguts.style.display = 'flex'
-        refLoading.style.display = 'none'
+
+
+            // Amaguem la càrrega i mostrem el llistat de productes
+            refContinguts.innerHTML = codiHTML
+            refContinguts.style.display = 'flex'
+            refLoading.style.display = 'none'
+
     }
 
-    mostraEdicioUsuari (id) {
-        let refId = document.getElementById('backofficeUsuarisId'),
-            refCorreu = document.getElementById('backofficeUsuarisCorreu'),
-            refNom = document.getElementById('backofficeUsuarisNom'),
-            refTipus = document.getElementById('backofficeUsuarisTipus'),
-            refCodi = document.getElementById('backofficeUsuarisCodi'),
-            refImatge = document.getElementById('backofficeUsuarisImg'),
-            refEsborra = document.getElementById('backofficeUsuarisBotoEsborra'),
+
+    mostraEdicioProductes (id) {
+        let refNom = document.getElementById('BackofficeProductesNom'),
+            refDescriptcio = document.getElementById('BackofficeProductesDescriptcio'),
+            refPreu = document.getElementById('BackofficeProductesPreu'),
+            refImatge = document.getElementById('BackofficeProductesImatge'),
+            refEsborra = document.getElementById('BackofficeProductesBotoEsborra'),
             cnt = 0,
             valor = null
 
-        // Busca l'usuari que s'ha d'editar a partir del 'id', i carrega les dades al formulari del popup
+                    // Busca l'usuari que s'ha d'editar a partir del 'id', i carrega les dades al formulari del popup
         for (cnt = 0; cnt < navegacio.dadesSeccio.length; cnt = cnt + 1) {
             valor = navegacio.dadesSeccio[cnt]
             if (valor.id === id) {
-                refId.innerHTML = valor.id
-                refCorreu.value = valor.correu
                 refNom.value = valor.nom
-                refTipus.value = valor.tipus
-                refCodi.value = ''
-                refImatge.src = valor.imatge
+                refDescriptcio.value = valor.descripcio
+                refPreu.value = valor.preu
+                refImatge = valor.imatge
                 break;
             }
         }
 
-        // Buidem el valor de les dades de imatge (només serveix per quan escullen una nova imatge)
-        this.codiImatge = ''
+                // Buidem el valor de les dades de imatge (només serveix per quan escullen una nova imatge)
+                this.codiImatge = ''
 
         // Mostra el botó esborra del popup
-        refEsborra.style.display = 'flex'
 
-        popups.mostraPopup('popupBackofficeUsuaris')
+
+
+        popups.mostraPopup('popupBackofficeProductes')
     }
 
-    mostraAfegeixUsuari () {
-        let refId = document.getElementById('backofficeUsuarisId'),
-            refCorreu = document.getElementById('backofficeUsuarisCorreu'),
-            refNom = document.getElementById('backofficeUsuarisNom'),
-            refTipus = document.getElementById('backofficeUsuarisTipus'),
-            refCodi = document.getElementById('backofficeUsuarisCodi'),
-            refImatge = document.getElementById('backofficeUsuarisImg'),
-            refEsborra = document.getElementById('backofficeUsuarisBotoEsborra')
 
-        // Posa el formulari del pop amb les dades buides
-        refId.innerHTML = ''
-        refCorreu.value = ''
-        refNom.value = ''
-        refTipus.value = ''
-        refCodi.value = ''
-        refImatge.src = '/web/imatges/transparent.png'
+    mostraImatge () {
+        let reader = new FileReader(),
+            refArxiu = document.getElementById('backofficeProductesArxiu'),
+            refImatge = document.getElementById('backofficeProductesImg')
 
-        // Buidem el valor de les dades de imatge (només serveix per quan escullen una nova imatge)
-        this.codiImatge = ''
+        reader.onload = (evt) => {
+            this.codiImatge = evt.target.result
+            refImatge.src = evt.target.result
+        }
+        reader.readAsDataURL(refArxiu.files[0])
+    }    
 
-        // Amaga el botó esborra del popup
-        refEsborra.style.display = 'none'
 
-        popups.mostraPopup('popupBackofficeUsuaris') 
-    }
 
     // Guarda les dades del formulari d'usuari al servidor
     async guardaDadesUsuariAlServidor () {
-        let refCarrega = document.getElementById('backofficeUsuarisPopupLoading'),
-            refError = document.getElementById('backofficeUsuarisPopupError'),
-            refId = document.getElementById('backofficeUsuarisId'),
-            refCorreu = document.getElementById('backofficeUsuarisCorreu'),
-            refNom = document.getElementById('backofficeUsuarisNom'),
-            refTipus = document.getElementById('backofficeUsuarisTipus'),
-            refCodi = document.getElementById('backofficeUsuarisCodi'),
+        let refCarrega = document.getElementById('backofficeProductesPopupLoading'),
+            refError = document.getElementById('backofficeProductesPopupError'),
+            refNom = document.getElementById('BackofficeProductesNom'),
+            refTipus = document.getElementById('BackofficeProductesDescriptcio'),
+            refCodi = document.getElementById('BackofficeProductesPreu'),
             dadesUsuari = login.llegeixDadesUsuari(),
             objEnviament = {
                 correuAdmin: dadesUsuari ? dadesUsuari.correu : null,
@@ -180,53 +166,5 @@ class ObjSeccioBackofficeUsuaris {
         }
     }
 
-    async esborraUsuariDelServidor () {
-        let refCarrega = document.getElementById('backofficeUsuarisPopupLoading'),
-            refError = document.getElementById('backofficeUsuarisPopupError'),
-            refId = document.getElementById('backofficeUsuarisId'),
-            dadesUsuari = login.llegeixDadesUsuari(),
-            objEnviament = {
-                correuAdmin: dadesUsuari ? dadesUsuari.correu : null,
-                tokenAdmin:  dadesUsuari ? dadesUsuari.token : null,
-                id: refId.innerHTML
-            },
-            objRebut = {}
 
-        refCarrega.style.display = 'flex'
-
-        // Intentem enviar les dades al servidor
-        try {
-            objRebut = await promiseCallServer('POST', '/call/usuariEsborra', objEnviament)
-        } catch (e) {
-            console.error(e)
-        }
-
-        refCarrega.style.display = 'none'
-        if (objRebut.resultat === 'ok') {
-            // Si hem pogut esborrar les dades, tanquem el popup i actualitzem la secció
-            popups.amagalsTots()
-            this.iniciaSeccio()
-
-        } else {
-            // Mostrem l'error per consola
-            console.error(objRebut)
-
-            // Si no hem pogut esborrar les dades, mostrem l'error una estona 
-            refError.style.display = 'flex'
-            await promiseWait(1500)
-            refError.style.display = 'none'
-        }
-    }
-
-    mostraImatge () {
-        let reader = new FileReader(),
-            refArxiu = document.getElementById('backofficeUsuarisArxiu'),
-            refImatge = document.getElementById('backofficeUsuarisImg')
-
-        reader.onload = (evt) => {
-            this.codiImatge = evt.target.result
-            refImatge.src = evt.target.result
-        }
-        reader.readAsDataURL(refArxiu.files[0])
-    }
-}
+}  

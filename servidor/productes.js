@@ -78,6 +78,9 @@ class Obj {
             result.json({ resultat: "ko", missatge: [] })
         }
     }
+
+
+    
 }
 
 // Export
