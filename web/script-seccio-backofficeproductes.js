@@ -37,9 +37,9 @@ class ObjSeccioBackofficeProductes {
                     codiHTML = codiHTML + '<div class="centro">'
                     codiHTML = codiHTML + '<table class="tabla_usuarios">'
                     codiHTML = codiHTML + '<tr class="tr_usuarios_info">'
-                    codiHTML = codiHTML + '<td class="td_usuarios">nom</td>'
-                    codiHTML = codiHTML + '<td class="td_usuarios">descripcio</td>'
-                    codiHTML = codiHTML + '<td class="td_usuarios">preu</td>'
+                    codiHTML = codiHTML + '<td class="td_usuarios">Nombre</td>'
+                    codiHTML = codiHTML + '<td class="td_usuarios">Descripcio</td>'
+                    codiHTML = codiHTML + '<td class="td_usuarios">Precio</td>'
                     codiHTML = codiHTML + '<td class="td_usuarios"></td>'
                     codiHTML = codiHTML + '</tr>'
                     for (cntProductos = 0; cntProductos < navegacio.dadesSeccio.length; cntProductos = cntProductos + 1) {
@@ -117,7 +117,7 @@ class ObjSeccioBackofficeProductes {
 
 
     // Guarda les dades del formulari d'usuari al servidor
-    async guardaDadesUsuariAlServidor () {
+    async guardaDadesProductesAlServidor () {
         let refCarrega = document.getElementById('backofficeProductesPopupLoading'),
             refError = document.getElementById('backofficeProductesPopupError'),
             refNom = document.getElementById('BackofficeProductesNom'),
@@ -142,7 +142,7 @@ class ObjSeccioBackofficeProductes {
 
         // Intentem enviar les dades al servidor
         try {
-            objRebut = await promiseCallServer('POST', '/call/productesGuarda', objEnviament)
+            objRebut = await promiseCallServer('POST', '/call/ProductesGuarda', objEnviament)
         } catch (e) {
             console.error(e)
         }

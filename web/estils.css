@@ -186,6 +186,13 @@
         width: 80%;
     }
 
+    .titulos{
+        text-align: center;
+        color:white;
+        text-decoration: underline;
+        font-size: 20px !important;
+    }
+
 }
 @media only screen and (min-device-width: 600px) { 
     .mobile { 
@@ -249,7 +256,7 @@
     }
 
     .tabla_usuarios{
-        width: 95%;
+        width: 60%;
         height: 95%;
         margin-left: auto;
         margin-right: auto;
@@ -343,7 +350,7 @@
     }
 
     .formulario{
-        width: 600px;
+        width: 645px;
         padding: 25px;
         font-size: 20px;
         height: 315px;
@@ -372,6 +379,12 @@
         border-radius: 15px; 
         border: 2px solid black;
         width: 900px;
+    }
+
+    .titulos{
+        text-align: center;
+        color:white;
+        text-decoration: underline;
     }
 
 }
@@ -505,11 +518,7 @@ body > #popups {
     flex-direction: column;
 }
 
-.titulos{
-    text-align: center;
-    color:white;
-    text-decoration: underline;
-}
+
 
 
 
